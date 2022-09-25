@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wlieberz.github.io/2021-02-21-Install-Bitwarden-appimage-on-KDE-distro/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Installing Bitwarden via AppImage on a KDE Distro - Blog::William_Lieberz</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installing Bitwarden via AppImage on a KDE Distro";
+        var mkdocs_page_input_path = "2021-02-21-Install-Bitwarden-appimage-on-KDE-distro.md";
+        var mkdocs_page_url = "/2021-02-21-Install-Bitwarden-appimage-on-KDE-distro/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Blog::William_Lieberz
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Installing Bitwarden via AppImage on a KDE Distro</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#background">Background</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#integrating-with-kde-menu">Integrating with KDE menu</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2021-02-15-sudo-vulnerability-CVE-2021-3156-rhel5-patching/">CVE-2021-3156 "Baron Samedit" - patching RHEL-7 & RHEL-5 hosts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2021-02-14-sudo-vulnerability-CVE-2021-3156/">CVE-2021-3156 "Baron Samedit" - checking hosts</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Blog::William_Lieberz</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Installing Bitwarden via AppImage on a KDE Distro</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installing-bitwarden-via-appimage-on-a-kde-distro">Installing Bitwarden via AppImage on a KDE Distro</h1>
+<p><strong>Date:</strong> 2021-02-21</p>
+<p><strong>Categories:</strong>
+<code>linux, security, appimage, kde, bitwarden</code></p>
+<h2 id="background">Background</h2>
+<p>I've been wanting to try the password manager <a href="https://bitwarden.com/">Bitwarden</a> for some time now, and the recently announced <a href="http://blog.lastpass.com/2021/02/changes-to-lastpass-free/">changes</a> to the free edition of LastPass was just the push I needed to give Bitwarden an <a href="https://upload.wikimedia.org/wikipedia/en/0/08/Ernest_P._Worrell.jpg">earnest</a> try.</p>
+<p>I can report that the process of exporting my data from the LastPass browser extension to csv, then importing it into Bitwarden was easy and painless. While the steps were self-explanatory, I do appreciate that Bitwarden has a reference <a href="https://bitwarden.com/help/article/import-from-lastpass/">document</a> for the process. I exported from the LastPass browser extension and imported into the Bitwarden web interface.</p>
+<p>I really appreciate that while Bitwarden provides the usual iOS, Android, Windows, and macOS binaries, they also provide a cross-distro compatible Linux package in the form of an <a href="https://appimage.org/">AppImage</a>. While the <a href="https://snapcraft.io/">Snap</a> vs <a href="https://flatpak.org/">Flatpak</a> debate seems to get the most attention, it is nice to see AppImage getting some love.</p>
+<h2 id="installation">Installation</h2>
+<p>Disclaimer: this is not the only way to handle installation, and may not be the best method, depending on your needs, but this is how I like to do it.</p>
+<p>This method installs into your home directory, so we assume that no other users on your system will need access to Bitwarden. Of course, it would be trivial to modify these steps slightly to install to some centrally accessible location like <code>/usr/local/bin</code> provided that you have sudo rights on the machine.</p>
+<pre><code class="language-sh"># Create a bin directory in your home:
+mkdir ~/bin
+cd ~/bin
+
+# Get the latest available AppImage Bitwarden package: 
+wget &quot;https://vault.bitwarden.com/download/?app=desktop&amp;platform=linux&quot;
+
+# Make the AppImage executable:
+chmod 775 Bitwarden*.AppImage
+
+# Since the Bitwarden AppImage binary will change its name whenever it
+# it auto-updates, I like to create a wrapper-script to call it:
+cat &lt;&lt; EOF &gt; ./bitwarden.sh
+#!/usr/bin/env bash
+
+$HOME/bin/Bitwarden*.AppImage
+
+EOF
+
+chmod 770 bitwarden.sh
+</code></pre>
+<h2 id="integrating-with-kde-menu">Integrating with KDE menu</h2>
+<p>Next, I like to integrate the application into my KDE menu. This should work regardless of the underlying distro, as long as your desktop environment is KDE (and why wouldn't it be?). </p>
+<p>Right-click on the KDE menu, click "New Item", type the name "Bitwarden", and click "ok". On the left hand side, drag the Bitwarden menu item into the category that makes the most sense to you - I usually put it in the "Office" category. On the right-hand side: Optionally add a description and comment, but definitely modify the "Command" field to point to the path where you put the AppImage. Hint: use the wrapper script you created earlier: <code>~/bin/bitwarden.sh</code>. You can also add an icon by clicking the empty square in the KDE Menu Editor (right-hand side). Usually I search within system icons for "lock" and just use a generic padlock icon. When done, click "save" to close out of the Menu Editor. </p>
+<p>I have heard there is an AppImage daemon <a href="https://github.com/probonopd/go-appimage">appimaged</a> as well as a Launcher project <a href="https://github.com/TheAssassin/AppImageLauncher">AppImageLauncher</a>, either of which would probably help with the automation of integrating AppImage apps into GUI menus, and also might add some automation around updating the AppImages themselves. I should probably look into these if I start using AppImages on a larger scale. If I do, I'll try to come back and edit this post.</p>
+<p>It doesn't much matter where you put the AppImage and whether or not you integrate it into the menu of your desktop environment of choice. As far as I can tell, Bitwarden will store local data in your home directory, as a well-behaved desktop application should, in <code>~/.config/Bitwarden</code>.</p>
+<p>Finally, just a friendly reminder to ensure you have configured two factor <a href="https://bitwarden.com/help/article/setup-two-step-login/">authentication</a>.</p>
+<p>Happy password managing!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../2021-02-15-sudo-vulnerability-CVE-2021-3156-rhel5-patching/" class="btn btn-neutral float-right" title="CVE-2021-3156 "Baron Samedit" - patching RHEL-7 & RHEL-5 hosts">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../2021-02-15-sudo-vulnerability-CVE-2021-3156-rhel5-patching/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
