@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://wlieberz.github.io/</loc>
-         <lastmod>2022-09-25</lastmod>
+         <lastmod>2022-10-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wlieberz.github.io/2021-02-14-sudo-vulnerability-CVE-2021-3156/</loc>
-         <lastmod>2022-09-25</lastmod>
+         <lastmod>2022-10-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wlieberz.github.io/2021-02-15-sudo-vulnerability-CVE-2021-3156-rhel5-patching/</loc>
-         <lastmod>2022-09-25</lastmod>
+         <lastmod>2022-10-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wlieberz.github.io/2021-02-21-Install-Bitwarden-appimage-on-KDE-distro/</loc>
-         <lastmod>2022-09-25</lastmod>
+         <lastmod>2022-10-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
