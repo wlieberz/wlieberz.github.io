@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wlieberz.github.io/aws-reinvent-2022/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>AWS re:Invent 2022 - Blog::William_Lieberz</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "AWS re:Invent 2022";
+        var mkdocs_page_input_path = "aws-reinvent-2022.md";
+        var mkdocs_page_url = "/aws-reinvent-2022/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Blog::William_Lieberz
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">AWS re:Invent 2022</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#about">About</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#thoughts-on-virtual-attendance">Thoughts on Virtual Attendance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interesting-announcements">Interesting announcements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#top-breakout-sessions">Top Breakout Sessions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#get-started-building-your-first-serverless-event-driven-application-svs209">Get started building your first serverless, event-driven application (SVS209)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sustainability-in-the-cloud-with-rust-and-aws-graviton-dop315">Sustainability in the cloud with Rust and AWS Graviton (DOP315)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#keynote-with-dr-werner-vogels">Keynote with Dr. Werner Vogels</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-containers-for-aws">Building Containers for AWS</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#misc-notes">Misc. Notes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#multi-region-design-patterns-and-best-practices-arc306">Multi-Region design patterns and best practices (ARC306)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-multi-region-serverless-application-with-aws-appsync-fwm310">Building a multi-Region serverless application with AWS AppSync (FWM310)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#whats-new-with-amazon-ecs-con323">What’s new with Amazon ECS (CON323)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#optimizing-amazon-eks-for-performance-and-cost-on-aws-con324">Optimizing Amazon EKS for performance and cost on AWS (CON324)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Rust-Learning-Resources/">Rust Learning Resources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2021-02-21-Install-Bitwarden-appimage-on-KDE-distro/">Installing Bitwarden via AppImage on a KDE Distro</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2021-02-15-sudo-vulnerability-CVE-2021-3156-rhel5-patching/">CVE-2021-3156 "Baron Samedit" - patching RHEL-7 & RHEL-5 hosts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2021-02-14-sudo-vulnerability-CVE-2021-3156/">CVE-2021-3156 "Baron Samedit" - checking hosts</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Blog::William_Lieberz</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>AWS re:Invent 2022</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="aws-reinvent-2022">AWS re:Invent 2022</h1>
+<p><strong>Date:</strong> 2022-12-19</p>
+<p><strong>Categories:</strong>
+<code>aws, conference, notes</code></p>
+<h2 id="about">About</h2>
+<p>This year, AWS re:Invent was from November 28, 2022 – December 2, 2022
+in Las Vegas.</p>
+<p>I just thought I'd share some of my notes regarding sessions which I found
+interesting in case it is helpful for anyone. </p>
+<p>I had been hoping to get this post out much closer to the end of the event, 
+but life got busy as it often does. At least the post is making it out within
+the same month! </p>
+<p>This was actually my first re:Invent, so I can't make any comparisons to 
+previous re:Invents. Also, I attended the event virtually since there were 
+various reasons I was unable to travel this year. I can offer some thoughts on
+attending virtually, but cannot compare it directly to attending in-person.</p>
+<h2 id="thoughts-on-virtual-attendance">Thoughts on Virtual Attendance</h2>
+<p>Unless I was doing something wrong (I very much doubt it, but it is certainly
+possible), the only sessions which were available live via the virtual 
+attendee portal were keynotes and leadership sessions. Then, after some time,
+the other sessions were posted to an official <a href="https://www.youtube.com/@AWSEventsChannel">AWS Events YouTube channel</a>. On that channel, the breakout sessions are helpfully 
+organized into playlists by topic.</p>
+<p>I don't recall exactly how long it would take before a breakout session would 
+become available on YouTube, but I feel it was anywhere from 2 hours to the 
+next day.</p>
+<p>The virtual attendance experience is very different from in-person. Of course,
+both have their pros and cons. </p>
+<p>I got some sense of the difference since many of my co-workers attended in-person
+and there was a Slack channel dedicated to re:Invent. Via the Slack channel I 
+got to see photos of many co-workers meeting for the first time - either due to
+remote-work or from being on geographically dispersed teams. I certainly regret
+that I was unable to attend in-person this year to take part in those experiences.
+Chalk this up to the "cons" column.</p>
+<p>On the other hand, folks who attended in-person had to carefully plan their
+day to get into the sessions which most interested them. If they happened to have
+interests which span multiple tracks, they might have found themselves needing
+to take a shuttle from one hotel to another and to factor in this travel-time.
+With virtual attendance, I was able to avoid all travel-time, and watch any 
+break-out from any track as soon as it became available on YouTube. </p>
+<p>I also saw some reports of sessions becoming fully booked - not a problem for
+virtual attendees.</p>
+<p>Watching the sessions on YouTube also afforded the opportunity to pause to 
+study diagrams and read slides, and of course to rewind if needed. Another 
+great benefit is the ability to increase the playback speed for slow speakers.</p>
+<p>I also attended KubeCon this year, virtually. I had felt certain that AWS
+would have more resources and would therefore have a far greater selection of 
+sessions being streamed live. I was initially very disappointed to find that
+KubeCon actually had a greater selection of sessions available live, or at least
+same-day.</p>
+<p>Whatever shortcomings and trade-offs I experienced by attending virtually, I'm
+still grateful to have been able to learn and participate.</p>
+<p>I think probably the best approach would be to attend in-person and to plan
+to catch-up on the talks which were full or that you couldn't make it to via
+the YouTube channel later.</p>
+<h2 id="interesting-announcements">Interesting announcements</h2>
+<p>Just a small subset of announcements that I personally thought were interesting.</p>
+<p><a href="https://aws.amazon.com/blogs/opensource/introducing-finch-an-open-source-client-for-container-development/">Finch</a></p>
+<p><a href="https://aws.amazon.com/opensearch-service/features/serverless/">Opensearch Serverless Preview</a></p>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2022/11/amazon-cloudwatch-internet-monitor-preview/">Amazon CloudWatch Internet Monitor Preview</a></p>
+<h2 id="top-breakout-sessions">Top Breakout Sessions</h2>
+<p>Just a small subset of sessions which I personally thought were interesting and worth recommending.</p>
+<h3 id="get-started-building-your-first-serverless-event-driven-application-svs209">Get started building your first serverless, event-driven application (SVS209)</h3>
+<p>Really excellent talk especially for those who are newer to AWS Serverless. It does a great job of modeling organic growth of an application from <a href="https://en.wikipedia.org/wiki/Minimum_viable_product">MVP</a> to an app with over 100 active subscribers and how the can be extended with new features with minimal refactoring, while still starting small and simple.</p>
+<p><a href="https://www.youtube.com/watch?v=-WYBOuP1Y6E&amp;list=PL2yQDdvlhXf8Erryfslfo3E42QtcX-aiD&amp;index=3">Link</a></p>
+<h3 id="sustainability-in-the-cloud-with-rust-and-aws-graviton-dop315">Sustainability in the cloud with Rust and AWS Graviton (DOP315)</h3>
+<p>Very interesting talk where they did a deep and nuanced comparison between Rust and Java across multiple dimensions (memory consumption, latency, throughput, energy consumption, cost). </p>
+<p>There were some expected results, but many of the findings were a bit surprising. 
+Number 5 will shock you! :-)</p>
+<p>For example, when they iterated on the Java app to use GraalVM, and the Rust app was using Tokio async/await, the Java app actually out-performed the Rust app in terms of execution speed. Then they refactored the Rust app to use a thread-pool instead of Tokio async/await and surpassed the Java performance.</p>
+<p>If you find this topic interesting and like to get in the weeds, you will enjoy this talk.</p>
+<p><a href="https://www.youtube.com/watch?v=HKAl4tSCp7o&amp;list=PL2yQDdvlhXf_fADfZTuoxJyPh2jXSScuR&amp;index=7">Link</a></p>
+<p><a href="https://www.graalvm.org/">https://www.graalvm.org/</a></p>
+<p><a href="https://github.com/aws-samples/serverless-rust-demo">https://github.com/aws-samples/serverless-rust-demo</a></p>
+<p><a href="https://github.com/aws-samples/serverless-graalvm-demo">https://github.com/aws-samples/serverless-graalvm-demo</a></p>
+<h3 id="keynote-with-dr-werner-vogels">Keynote with Dr. Werner Vogels</h3>
+<p>Starts with a Matrix skit, which is worth watching on its own. The skit shows 
+what a fully synchronous world would look like, versus the async world we 
+actually live in. Async is used as the connective tissue which binds the keynote together.</p>
+<p><a href="https://www.youtube.com/watch?v=RfvL_423a-I&amp;list=PL2yQDdvlhXf_hIzmfHCdbcXj2hS52oP9r">Link</a></p>
+<h3 id="building-containers-for-aws">Building Containers for AWS</h3>
+<p>Good overview/review of some basic container concepts. </p>
+<p>Covers Finch.</p>
+<p>Container building tips / tricks at the end. Good for any teams getting started with containers.</p>
+<p><a href="https://www.youtube.com/watch?v=S7JwFFZ-7_Q&amp;list=PL2yQDdvlhXf-I_sgsmmp8NiGGo-QKUL0f&amp;index=1">Link</a></p>
+<h2 id="misc-notes">Misc. Notes</h2>
+<p>I didn't take notes for all the sessions I watched, but if I did have any notes
+I'm dropping them here.</p>
+<h3 id="multi-region-design-patterns-and-best-practices-arc306">Multi-Region design patterns and best practices (ARC306)</h3>
+<p>Very clear session on multi-region design patterns.</p>
+<p><a href="https://www.youtube.com/watch?v=ilgpzlE7Hds&amp;list=PL2yQDdvlhXf861VuvlIvmHRQX965qnt1z&amp;index=10">Link</a></p>
+<h3 id="building-a-multi-region-serverless-application-with-aws-appsync-fwm310">Building a multi-Region serverless application with AWS AppSync (FWM310)</h3>
+<p>GraphQL pub/sub. Good, clear explanation of the topic and nice comprehensive demo.</p>
+<p><a href="https://www.youtube.com/watch?v=bUvTxaqWXXs&amp;list=PL2yQDdvlhXf_fADfZTuoxJyPh2jXSScuR&amp;index=9">Link</a></p>
+<h3 id="whats-new-with-amazon-ecs-con323">What’s new with Amazon ECS (CON323)</h3>
+<p>Details and demo of a new feature: "Amazon ECS Service Connect".</p>
+<p><a href="https://www.youtube.com/watch?v=1_YUmq3MpYQ&amp;list=PL2yQDdvlhXf8Erryfslfo3E42QtcX-aiD&amp;index=8">Link</a></p>
+<h3 id="optimizing-amazon-eks-for-performance-and-cost-on-aws-con324">Optimizing Amazon EKS for performance and cost on AWS (CON324)</h3>
+<p>If you are intersted in the <a href="https://github.com/aws/karpenter">Karpenter project</a>, 
+but not familiar with it this is a good overview of what Karpenter does and 
+how it works.</p>
+<p><a href="https://www.youtube.com/watch?v=5B4-s_ivn1o&amp;list=PL2yQDdvlhXf-I_sgsmmp8NiGGo-QKUL0f&amp;index=3">Link</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Rust-Learning-Resources/" class="btn btn-neutral float-right" title="Rust Learning Resources">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Rust-Learning-Resources/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
