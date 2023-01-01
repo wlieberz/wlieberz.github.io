@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wlieberz.github.io/kubecon-2022/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>KubeCon 2022 - Blog::William_Lieberz</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "KubeCon 2022";
+        var mkdocs_page_input_path = "kubecon-2022.md";
+        var mkdocs_page_url = "/kubecon-2022/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Blog::William_Lieberz
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">KubeCon 2022</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#about">About</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#top-3-topics-in-2023">Top 3 Topics in 2023</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#webassembly-wasm-native-containers">WebAssembly (WASM) native containers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#cloud-native-webassembly-containerization-on-the-edge">Cloud-Native WebAssembly: Containerization On the Edge</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#webassembly-for-a-reactive-internet-of-things">WebAssembly for a Reactive Internet of Things</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user-namespaces-in-k8s">User Namespaces in K8s</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#run-as-root-not-root-user-namespaces-in-k8s">Run As “Root”, Not Root: User Namespaces In K8s</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gateway-api">Gateway API</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#one-api-to-rule-them-all-what-the-gateway-api-means-for-service-meshes">One API To Rule Them All? What the Gateway API Means For Service Meshes</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aws-reinvent-2022/">AWS re:Invent 2022</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Rust-Learning-Resources/">Rust Learning Resources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2021-02-21-Install-Bitwarden-appimage-on-KDE-distro/">Installing Bitwarden via AppImage on a KDE Distro</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2021-02-15-sudo-vulnerability-CVE-2021-3156-rhel5-patching/">CVE-2021-3156 "Baron Samedit" - patching RHEL-7 & RHEL-5 hosts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2021-02-14-sudo-vulnerability-CVE-2021-3156/">CVE-2021-3156 "Baron Samedit" - checking hosts</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Blog::William_Lieberz</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>KubeCon 2022</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="kubecon-2022">KubeCon 2022</h1>
+<p><strong>Date:</strong> 2022-12-31</p>
+<p><strong>Categories:</strong>
+<code>k8s, kubernetes, kubecon, conference, notes</code></p>
+<h2 id="about">About</h2>
+<p>KubeCon 2022 was from October 24, 2022 – October 28, 2022 in Detroit.</p>
+<p>Event site:
+<a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/">https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/</a></p>
+<p>Today as I am writing this, it is New Year's Eve, and I am reflecting on 
+2022 and thinking ahead to 2023. It seems like a perfect time to collect my
+notes from this past KubeCon into a succinct post with a particular focus on 
+what topics I think will be important in 2023.</p>
+<p>This was my first ever KubeCon, and it was a fantastic experience. I learned a
+lot about a wide variety of topics. This quick post certainly will not even 
+attempt to capture the entire experience. If you haven't been, and you get an
+opportunity to attend, either in-person or virtually, I highly recommend it.</p>
+<p>This year, I attended virtually. I wrote some thoughts about virtual vs in-person
+attendance in <a href="https://wlieberz.github.io/aws-reinvent-2022/">my post on AWS re:Invent 2022</a>.
+While the specifics differ between the two conferences, the broad strokes should remain
+relevant, so if you are interested in that topic, I'd suggest giving that post a look.</p>
+<h2 id="top-3-topics-in-2023">Top 3 Topics in 2023</h2>
+<p>Time to make predictions! It will be fun to look back in a year's time
+to see if any of these predictions were even close to being accurate.</p>
+<p>Without further ado, I believe these will be the top three most important or 
+influential trends or topics in 2023 in the Kubernetes space:</p>
+<ol>
+<li>WebAssembly (WASM) native containers</li>
+<li>User Namespaces in K8s</li>
+<li>Gateway API</li>
+</ol>
+<p>For each of these topics I am including one or two presentations and some 
+supporting links for further reading.</p>
+<h3 id="webassembly-wasm-native-containers">WebAssembly (WASM) native containers</h3>
+<p>Docker has <a href="https://docs.docker.com/desktop/wasm/">announced beta support for WASM Containers</a>.
+I feel that this will lower the barrier to entry significantly and allow many developers to 
+experiment and see if this technology can help their technology and business goals.</p>
+<p>There are two WASM-related presentations from KubeCon which I caught which I think
+are worth a look.</p>
+<h4 id="cloud-native-webassembly-containerization-on-the-edge">Cloud-Native WebAssembly: Containerization On the Edge</h4>
+<p>I think the presentation offers a decent overview of WebAssembly.</p>
+<p>Specifically, the <a href="https://github.com/WasmEdge/WasmEdge">WasmEdge</a> runtime is presented.</p>
+<p><a href="https://www.youtube.com/watch?v=Kg5z5A5wH0A">Presentation</a></p>
+<p><a href="https://github.com/second-state/microservice-rust-mysql">Demo repo</a></p>
+<h4 id="webassembly-for-a-reactive-internet-of-things">WebAssembly for a Reactive Internet of Things</h4>
+<p>This presentation approaches WASM from a very different angle, which I found very
+intriguing: distributing code updates as a configuration change. More specifically, 
+using WebAssembly to distribute a single function as a WASM binary which is 
+imported into the main firmware, e.g. for an IoT Edge device which is otherwise
+difficult to update.</p>
+<p><a href="https://www.youtube.com/watch?v=f-iWOwx6wkc">Presentation</a></p>
+<h3 id="user-namespaces-in-k8s">User Namespaces in K8s</h3>
+<h4 id="run-as-root-not-root-user-namespaces-in-k8s">Run As “Root”, Not Root: User Namespaces In K8s</h4>
+<p>This is a great talk. Quick and to the point, it explains what works currently, 
+what doesn't, and goes into some of the details of the challenges of implementing
+support for User Namespaces in K8s - <a href="https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/127-user-namespaces/README.md">KEP-127</a>. </p>
+<p>To help convince you that this will be an important topic in 2023, take note of 
+the demo in the presentation, which shows a container-escape-to-root exploit
+which is mitigated by this new feature, even as the underlying host remains 
+unpatched against the CVE used in the demo.</p>
+<p>There are currently some limitations, e.g.: no stateful pods, but these are
+likely to be addressed soon. Requires K8s v1.25.0+</p>
+<p><a href="https://www.youtube.com/watch?v=uRp0YltujVE">Presentation</a></p>
+<p><a href="https://man7.org/linux/man-pages/man7/user_namespaces.7.html">man 7 user_namespaces</a></p>
+<h3 id="gateway-api">Gateway API</h3>
+<h4 id="one-api-to-rule-them-all-what-the-gateway-api-means-for-service-meshes">One API To Rule Them All? What the Gateway API Means For Service Meshes</h4>
+<p>In short, Gateway API seeks to create a unified API spec for both ingresses 
+and service-meshes across various implementations.</p>
+<p>I am excited about this since it should hopefully create greater cohesion and
+maturity in two related areas where Kubernetes seems to be more fragmented
+and confusing than it needs to be.</p>
+<p><a href="https://www.youtube.com/watch?v=vYGP5XdP2TA">Presentation</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../aws-reinvent-2022/" class="btn btn-neutral float-right" title="AWS re:Invent 2022">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../aws-reinvent-2022/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
