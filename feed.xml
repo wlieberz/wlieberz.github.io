@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://wlieberz.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://wlieberz.github.io/" rel="alternate" type="text/html" /><updated>2026-07-20T03:23:24+00:00</updated><id>http://wlieberz.github.io/feed.xml</id><title type="html">William Lieberz Tech Blog</title><subtitle>Various musings and thoughts from William Lieberz related to computer stuff. This blog is mostly about Linux, Rust, DevOps, and anything else I might find interesting</subtitle><entry><title type="html">KubeCon 2022</title><link href="http://wlieberz.github.io/conference-notes/2022/12/31/kubecon-2022.html" rel="alternate" type="text/html" title="KubeCon 2022" /><published>2022-12-31T00:00:00+00:00</published><updated>2022-12-31T00:00:00+00:00</updated><id>http://wlieberz.github.io/conference-notes/2022/12/31/kubecon-2022</id><content type="html" xml:base="http://wlieberz.github.io/conference-notes/2022/12/31/kubecon-2022.html"><![CDATA[<p>KubeCon 2022 was from October 24, 2022 – October 28, 2022 in Detroit.</p>
+
+<p>Event site:
+<a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/">https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/</a></p>
+
+<p>Today as I am writing this, it is New Year’s Eve, and I am reflecting on 
+2022 and thinking ahead to 2023. It seems like a perfect time to collect my
+notes from this past KubeCon into a succinct post with a particular focus on 
+what topics I think will be important in 2023.</p>
+
+<p>This was my first ever KubeCon, and it was a fantastic experience. I learned a
+lot about a wide variety of topics. This quick post certainly will not even 
+attempt to capture the entire experience. If you haven’t ever attended, and you get an
+opportunity to attend, either in-person or virtually, I highly recommend it.</p>
+
+<p>This year, I attended virtually. I wrote some thoughts about virtual vs in-person
+attendance in my post on AWS re:Invent 2022.
+While the specifics differ between the two conferences, the broad strokes should remain
+relevant, so if you are interested in that topic, I’d suggest giving that post a look.</p>
+
+<h2 id="top-3-topics-in-2023">Top 3 Topics in 2023</h2>
+
+<p>Time to make predictions! It will be fun to look back in a year’s time
+to see if any of these predictions were even close to being accurate.</p>
+
+<p>Without further ado, I believe these will be the top three most important or 
+influential trends or topics in 2023 in the Kubernetes space:</p>
+
+<ol>
+  <li>WebAssembly (WASM) native containers</li>
+  <li>User Namespaces in K8s</li>
+  <li>Gateway API</li>
+</ol>
+
+<p>For each of these topics I am including one or two presentations and some 
+supporting links for further reading.</p>
+
+<h3 id="webassembly-wasm-native-containers">WebAssembly (WASM) native containers</h3>
+
+<p>Docker has <a href="https://docs.docker.com/desktop/wasm/">announced beta support for WASM Containers</a>.
+I feel that this will lower the barrier to entry significantly and allow many developers to 
+experiment and see if this technology can help their technology and business goals.</p>
+
+<p>There are two WASM-related presentations from KubeCon which I caught which I think
+are worth a look.</p>
+
+<h4 id="cloud-native-webassembly-containerization-on-the-edge">Cloud-Native WebAssembly: Containerization On the Edge</h4>
+
+<p>I think the presentation offers a decent overview of WebAssembly.</p>
+
+<p>Specifically, the <a href="https://github.com/WasmEdge/WasmEdge">WasmEdge</a> runtime is presented.</p>
+
+<p><a href="https://www.youtube.com/watch?v=Kg5z5A5wH0A">Presentation</a></p>
+
+<p><a href="https://github.com/second-state/microservice-rust-mysql">Demo repo</a></p>
+
+<h4 id="webassembly-for-a-reactive-internet-of-things">WebAssembly for a Reactive Internet of Things</h4>
+
+<p>This presentation approaches WASM from a very different angle, which I found very
+intriguing: distributing code updates as a configuration change. More specifically, 
+using WebAssembly to distribute a single function as a WASM binary which is 
+imported into the main firmware, e.g. for an IoT Edge device which is otherwise
+difficult to update.</p>
+
+<p><a href="https://www.youtube.com/watch?v=f-iWOwx6wkc">Presentation</a></p>
+
+<h3 id="user-namespaces-in-k8s">User Namespaces in K8s</h3>
+
+<h4 id="run-as-root-not-root-user-namespaces-in-k8s">Run As “Root”, Not Root: User Namespaces In K8s</h4>
+
+<p>This is a great talk. Quick and to the point, it explains what works currently, 
+what doesn’t, and goes into some of the details of the challenges of implementing
+support for User Namespaces in K8s - <a href="https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/127-user-namespaces/README.md">KEP-127</a>.</p>
+
+<p>To help convince you that this will be an important topic in 2023, take note of 
+the demo in the presentation, which shows a container-escape-to-root exploit
+which is mitigated by this new feature, even as the underlying host remains 
+unpatched against the CVE used in the demo.</p>
+
+<p>There are currently some limitations, e.g.: no stateful pods, but these are
+likely to be addressed soon. Requires K8s v1.25.0+</p>
+
+<p><a href="https://www.youtube.com/watch?v=uRp0YltujVE">Presentation</a></p>
+
+<p><a href="https://man7.org/linux/man-pages/man7/user_namespaces.7.html">man 7 user_namespaces</a></p>
+
+<h3 id="gateway-api">Gateway API</h3>
+
+<h4 id="one-api-to-rule-them-all-what-the-gateway-api-means-for-service-meshes">One API To Rule Them All? What the Gateway API Means For Service Meshes</h4>
+
+<p>In short, Gateway API seeks to create a unified API spec for both ingresses 
+and service-meshes across various implementations.</p>
+
+<p>I am excited about this since it should hopefully create greater cohesion and
+maturity in two related areas where Kubernetes seems to be more fragmented
+and confusing than it needs to be.</p>
+
+<p><a href="https://www.youtube.com/watch?v=vYGP5XdP2TA">Presentation</a></p>]]></content><author><name></name></author><category term="conference-notes" /><summary type="html"><![CDATA[KubeCon 2022 was from October 24, 2022 – October 28, 2022 in Detroit.]]></summary></entry><entry><title type="html">AWS re:Invent 2022</title><link href="http://wlieberz.github.io/conference-notes/2022/12/19/aws-reinvent-2022.html" rel="alternate" type="text/html" title="AWS re:Invent 2022" /><published>2022-12-19T00:00:00+00:00</published><updated>2022-12-19T00:00:00+00:00</updated><id>http://wlieberz.github.io/conference-notes/2022/12/19/aws-reinvent-2022</id><content type="html" xml:base="http://wlieberz.github.io/conference-notes/2022/12/19/aws-reinvent-2022.html"><![CDATA[<p>This year, AWS re:Invent was from November 28, 2022 – December 2, 2022
+in Las Vegas (I guess it is always in Las Vegas).</p>
+
+<p>I just thought I’d share some of my notes regarding sessions which I found
+interesting in case it is helpful for anyone.</p>
+
+<p>I had been hoping to get this post out much closer to the end of the event, 
+but life got busy as it often does. At least the post is making it out within
+the same month!</p>
+
+<p>This was actually my first re:Invent, so I can’t make any comparisons to 
+previous re:Invents. Also, I attended the event virtually since there were 
+various reasons I was unable to travel this year. I can offer some thoughts on
+attending virtually, but cannot compare it directly to attending in-person.</p>
+
+<h2 id="thoughts-on-virtual-attendance">Thoughts on Virtual Attendance</h2>
+
+<p>Unless I was doing something wrong (I very much doubt it, but it is certainly
+possible), the only sessions which were available live via the virtual 
+attendee portal were keynotes and leadership sessions. Then, after some time,
+the other sessions were posted to an official <a href="https://www.youtube.com/@AWSEventsChannel">AWS Events YouTube channel</a>. On that channel, the breakout sessions are helpfully 
+organized into playlists by topic.</p>
+
+<p>I don’t recall exactly how long it would take before a breakout session would 
+become available on YouTube, but I feel it was anywhere from 2 hours to the 
+next day.</p>
+
+<p>The virtual attendance experience is very different from in-person. Of course,
+both have their pros and cons.</p>
+
+<p>I got some sense of the difference since many of my co-workers attended in-person
+and there was a Slack channel dedicated to re:Invent. Via the Slack channel I 
+got to see photos of many co-workers meeting for the first time - either due to
+remote-work or from being on geographically dispersed teams. I certainly regret
+that I was unable to attend in-person this year to take part in those experiences.
+Chalk this up to the “cons” column.</p>
+
+<p>On the other hand, folks who attended in-person had to carefully plan their
+day to get into the sessions which most interested them. If they happened to have
+interests which span multiple tracks, they might have found themselves needing
+to take a shuttle from one hotel to another and to factor in this travel-time.
+With virtual attendance, I was able to avoid all travel-time, and watch any 
+break-out from any track as soon as it became available on YouTube.</p>
+
+<p>I also saw some reports of sessions becoming fully booked - not a problem for
+virtual attendees.</p>
+
+<p>Watching the sessions on YouTube also afforded the opportunity to pause to 
+study diagrams and read slides, and of course to rewind if needed. Another 
+great benefit is the ability to increase the playback speed for slow speakers.</p>
+
+<p>I also attended KubeCon this year (also virtually). I had felt certain that AWS
+would have more resources and would therefore have a far greater selection of 
+sessions being streamed live. I was initially very disappointed to find that
+KubeCon actually had a greater selection of sessions available live, or at least
+same-day.</p>
+
+<p>Whatever shortcomings and trade-offs I experienced by attending virtually, I’m
+still grateful to have been able to learn and participate.</p>
+
+<p>I think probably the best approach would be to attend in-person and to plan
+to catch-up on the talks which were full or that you couldn’t make it to via
+the YouTube channel later.</p>
+
+<h2 id="interesting-announcements">Interesting announcements</h2>
+
+<p>Just a small subset of announcements that I personally thought were interesting.</p>
+
+<p><a href="https://aws.amazon.com/blogs/opensource/introducing-finch-an-open-source-client-for-container-development/">Finch</a></p>
+
+<p><a href="https://aws.amazon.com/opensearch-service/features/serverless/">Opensearch Serverless Preview</a></p>
+
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2022/11/amazon-cloudwatch-internet-monitor-preview/">Amazon CloudWatch Internet Monitor Preview</a></p>
+
+<h2 id="top-breakout-sessions">Top Breakout Sessions</h2>
+
+<p>Just a small subset of sessions which I personally thought were interesting and worth recommending.</p>
+
+<h3 id="get-started-building-your-first-serverless-event-driven-application-svs209">Get started building your first serverless, event-driven application (SVS209)</h3>
+
+<p>Really excellent talk especially for those who are newer to AWS Serverless. It does a great job of modeling organic growth of an application from <a href="https://en.wikipedia.org/wiki/Minimum_viable_product">MVP</a> to an app with over 100 active subscribers and how the app can be extended with new features with minimal refactoring, while still starting small and simple.</p>
+
+<p><a href="https://www.youtube.com/watch?v=-WYBOuP1Y6E&amp;list=PL2yQDdvlhXf8Erryfslfo3E42QtcX-aiD&amp;index=3">Link</a></p>
+
+<h3 id="sustainability-in-the-cloud-with-rust-and-aws-graviton-dop315">Sustainability in the cloud with Rust and AWS Graviton (DOP315)</h3>
+
+<p>Very interesting talk where they did a deep and nuanced comparison between Rust and Java across multiple dimensions (memory consumption, latency, throughput, energy consumption, cost).</p>
+
+<p>There were some expected results, but many of the findings were a bit surprising. 
+Number 5 will shock you! :-)</p>
+
+<p>For example, when they iterated on the Java app to use GraalVM, and the Rust app was using Tokio async/await, the Java app actually out-performed the Rust app in terms of execution speed. Then they refactored the Rust app to use a thread-pool instead of Tokio async/await and surpassed the Java performance.</p>
+
+<p>If you find this topic interesting and like to get in the weeds, you will enjoy this talk.</p>
+
+<p><a href="https://www.youtube.com/watch?v=HKAl4tSCp7o&amp;list=PL2yQDdvlhXf_fADfZTuoxJyPh2jXSScuR&amp;index=7">Link</a></p>
+
+<p><a href="https://www.graalvm.org/">https://www.graalvm.org/</a></p>
+
+<p><a href="https://github.com/aws-samples/serverless-rust-demo">https://github.com/aws-samples/serverless-rust-demo</a></p>
+
+<p><a href="https://github.com/aws-samples/serverless-graalvm-demo">https://github.com/aws-samples/serverless-graalvm-demo</a></p>
+
+<h3 id="keynote-with-dr-werner-vogels">Keynote with Dr. Werner Vogels</h3>
+
+<p>Starts with a Matrix skit, which is worth watching on its own. The skit shows 
+what a fully synchronous world would look like, versus the async world we 
+actually live in. Async is used as the connective tissue which binds the keynote together.</p>
+
+<p><a href="https://www.youtube.com/watch?v=RfvL_423a-I&amp;list=PL2yQDdvlhXf_hIzmfHCdbcXj2hS52oP9r">Link</a></p>
+
+<h3 id="building-containers-for-aws">Building Containers for AWS</h3>
+
+<p>Good overview/review of some basic container concepts.</p>
+
+<p>Covers Finch.</p>
+
+<p>Container building tips / tricks at the end. Good for any teams getting started with containers.</p>
+
+<p><a href="https://www.youtube.com/watch?v=S7JwFFZ-7_Q&amp;list=PL2yQDdvlhXf-I_sgsmmp8NiGGo-QKUL0f&amp;index=1">Link</a></p>
+
+<h2 id="misc-notes">Misc. Notes</h2>
+
+<p>I didn’t take notes for all the sessions I watched, but if I did have any notes
+I’m dropping them here.</p>
+
+<h3 id="multi-region-design-patterns-and-best-practices-arc306">Multi-Region design patterns and best practices (ARC306)</h3>
+
+<p>Very clear session on multi-region design patterns.</p>
+
+<p><a href="https://www.youtube.com/watch?v=ilgpzlE7Hds&amp;list=PL2yQDdvlhXf861VuvlIvmHRQX965qnt1z&amp;index=10">Link</a></p>
+
+<h3 id="building-a-multi-region-serverless-application-with-aws-appsync-fwm310">Building a multi-Region serverless application with AWS AppSync (FWM310)</h3>
+
+<p>GraphQL pub/sub. Good, clear explanation of the topic and nice comprehensive demo.</p>
+
+<p><a href="https://www.youtube.com/watch?v=bUvTxaqWXXs&amp;list=PL2yQDdvlhXf_fADfZTuoxJyPh2jXSScuR&amp;index=9">Link</a></p>
+
+<h3 id="whats-new-with-amazon-ecs-con323">What’s new with Amazon ECS (CON323)</h3>
+
+<p>Details and demo of a new feature: “Amazon ECS Service Connect”.</p>
+
+<p><a href="https://www.youtube.com/watch?v=1_YUmq3MpYQ&amp;list=PL2yQDdvlhXf8Erryfslfo3E42QtcX-aiD&amp;index=8">Link</a></p>
+
+<h3 id="optimizing-amazon-eks-for-performance-and-cost-on-aws-con324">Optimizing Amazon EKS for performance and cost on AWS (CON324)</h3>
+
+<p>If you are intersted in the <a href="https://github.com/aws/karpenter">Karpenter project</a>, 
+but not familiar with it this is a good overview of what Karpenter does and 
+how it works.</p>
+
+<p><a href="https://www.youtube.com/watch?v=5B4-s_ivn1o&amp;list=PL2yQDdvlhXf-I_sgsmmp8NiGGo-QKUL0f&amp;index=3">Link</a></p>]]></content><author><name></name></author><category term="conference-notes" /><summary type="html"><![CDATA[This year, AWS re:Invent was from November 28, 2022 – December 2, 2022 in Las Vegas (I guess it is always in Las Vegas).]]></summary></entry><entry><title type="html">Rust Learning Resources</title><link href="http://wlieberz.github.io/rust/2022/10/05/Rust-Learning-Resources.html" rel="alternate" type="text/html" title="Rust Learning Resources" /><published>2022-10-05T00:00:00+00:00</published><updated>2022-10-05T00:00:00+00:00</updated><id>http://wlieberz.github.io/rust/2022/10/05/Rust-Learning-Resources</id><content type="html" xml:base="http://wlieberz.github.io/rust/2022/10/05/Rust-Learning-Resources.html"><![CDATA[<p>The intention of this blog post is to serve as a quick cheatsheet for those
+who may be interested in learning Rust, whether for the first time or to 
+take existing skills to the next level.</p>
+
+<p>I am by no means a Rust expert, but I’ve found these resources helpful and I
+hope some of them will help you too!</p>
+
+<p>As I come across new resources, I’ll be sure to update this page.</p>
+
+<h2 id="the-rust-book-official">The Rust Book (official)</h2>
+
+<p>The first place you should start is the official docs - they are fantastic!</p>
+
+<p>Particularly, I think the <a href="https://doc.rust-lang.org/book/">The Rust Book</a> 
+should be everybody’s first stop.</p>
+
+<p>It is official, and it is entirely free. 
+I’ve read it cover-to-cover and re-read certain sections. I love that the 
+example programs in the book are simple enough to easily understand, but still
+complex enough to seem like they are modeling a real-world problem that is 
+worth solving.</p>
+
+<h2 id="rust-by-example-official">Rust By Example (official)</h2>
+
+<p>If you come from another compiled language or you enjoy more to-the-point 
+and terse examples, you may enjoy 
+<a href="https://doc.rust-lang.org/stable/rust-by-example/">Rust By Example</a>.</p>
+
+<p>It is also an excellent resource after you have read <em>The Rust Book</em> and just
+need a quick review of a specific topic.</p>
+
+<p><em>The Rust Book</em> and <em>Rust By Example</em> are not the only official Rust learning 
+resources. More can be found here: 
+<a href="https://www.rust-lang.org/learn">https://www.rust-lang.org/learn</a>.</p>
+
+<h2 id="no-boilerplate-youtube">No Boilerplate (youtube)</h2>
+
+<p>The <a href="https://www.youtube.com/c/NoBoilerplate/videos">No Boilerplate</a> YouTube
+channel has some interesting lightning talks about various Rust topics.</p>
+
+<p>You won’t be learning any topics in-depth in the seven to twelve minute videos,
+but they often offer an interesting angle on a topic. Additionally, the videos
+might serve as a nice bit of motivation to continue your Rust studies, as you
+get glimpses of things that are possible in Rust, and some of Rust’s unique
+value propositions.</p>
+
+<p>If you only watch one video, watch:
+<a href="https://youtu.be/Q3AhzHq8ogs">Rust: Your code can be PERFECT</a></p>
+
+<p>Sure, the title has a strong whiff of clickbait and the video has more than a 
+strong taste of Rust Kool-Aid, but, in my mind, the point is still valid:
+with Rust, once your code compiles, you’ll likely spend more time implementing
+new features and fixing logical bugs, than fixing bugs arising from safety 
+issues or stability issues.</p>
+
+<h2 id="cliffle-blog">Cliffle (blog)</h2>
+
+<p>There are some really excellent Rust posts on <a href="https://cliffle.com/blog">https://cliffle.com/blog</a>.</p>
+
+<p><strong>Some posts of note:</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://cliffle.com/blog/rust-typestate/">The Typestate Pattern in Rust</a></p>
+
+    <p>Highly recommended reading. The Typestate Pattern is not unique to Rust, but
+Rust’s language design lends itself very well to this powerful pattern.</p>
+  </li>
+  <li>
+    <p><a href="https://cliffle.com/blog/rust-mutexes/">Why Rust mutexes look like they do</a></p>
+
+    <p>I love this type of article. It is in the format where a common complaint is 
+explored and, in good faith, the author attempts to address the complaint. 
+In this case, the author explores an alternate mutex implementation in Rust 
+with the goal of it being more like a C/C++ mutex. As we go on this journey 
+with the author, we find several major problems. In order to solve those 
+problems, we find that the only viable solution ends up looking almost 
+exactly like the Rust standard library mutex implementation.</p>
+
+    <p>A great reason to read this article is that you might learn something about C
+and C++, mutexes, and software engineering in general.</p>
+  </li>
+  <li>
+    <p><a href="https://cliffle.com/blog/prefer-rust/">Prefer Rust to C/C++ for new code</a></p>
+
+    <p>If you are looking for an article to help convince your boss (or yourself) to
+take the plunge and invest the time and effort to switch to Rust, this article
+might be for you. As an added bonus, this article is extremely pragmatic and
+does not blindly recommend Rust - it includes an excellent 
+“When to not use Rust” section as well.</p>
+  </li>
+</ul>
+
+<h2 id="faster-than-lime-blog">Faster Than Lime (blog)</h2>
+
+<p>Amos, over at <a href="https://fasterthanli.me/">https://fasterthanli.me/</a> writes 
+intensely technical, excellent, and almost-always Rust-centric posts.</p>
+
+<p>The blog features Cool Bear, a cartoon bear who pops into the margins to ask
+insightful questions and sometimes poke and prod Amos into re-writing a 
+solution in a more elegant way. Cool Bear is very cool.</p>
+
+<p><strong>Some posts of note:</strong></p>
+
+<ul>
+  <li><a href="https://fasterthanli.me/articles/i-want-off-mr-golangs-wild-ride">I want off Mr. Golang’s Wild Ride</a></li>
+</ul>
+
+<p>An infamous post, with an appeal to choose Rust over Go. Although it may have
+started flame-wars, the post is very sincere and his argument is very carefully 
+laid out. Very strongly recommended reading.</p>
+
+<ul>
+  <li><a href="https://fasterthanli.me/articles/lies-we-tell-ourselves-to-keep-using-golang">Lies we tell ourselves to keep using Golang</a></li>
+</ul>
+
+<p>A sequel to <em>I want off Mr. Golang’s Wild Ride</em>. If you made it 
+through the original, you will definitely want to read this one.</p>
+
+<ul>
+  <li><a href="https://fasterthanli.me/series/advent-of-code-2020">Advent of Code 2020</a></li>
+</ul>
+
+<p>All the posts in the Advent of Code series offer some great insights into 
+solving various problems with Rust. It is interesting to see which crates 
+he selected for the various problems. I recommend starting at Day 1 and working
+your way forward.</p>
+
+<h2 id="learn-rust-with-entirely-too-many-linked-lists-unofficial">Learn Rust With Entirely Too Many Linked Lists (unofficial)</h2>
+
+<p><a href="https://rust-unofficial.github.io/too-many-lists/">Learn Rust With Entirely Too Many Linked Lists</a></p>
+
+<p>I’ve not read through the entire book, but it seems promising. I would probably 
+not recommend this as your first foray into Rust-land - The Rust Book is a much
+kinder, gentler, and probably more useful introduction.</p>
+
+<p>One of the common arguments against using Rust goes something like: 
+“It is impossible to implement a linked list in (safe) Rust, so you shouldn’t 
+use Rust”. The book offers a very thorough exploration of this topic.</p>
+
+<p>As advertised, it definitely involves too many linked lists.</p>]]></content><author><name></name></author><category term="rust" /><summary type="html"><![CDATA[The intention of this blog post is to serve as a quick cheatsheet for those who may be interested in learning Rust, whether for the first time or to take existing skills to the next level.]]></summary></entry><entry><title type="html">Installing Bitwarden AppImage (for KDE) - 2026 Update</title><link href="http://wlieberz.github.io/bitwarden/2021/02/21/Installing-Bitwarden-AppImage-for-KDE.html" rel="alternate" type="text/html" title="Installing Bitwarden AppImage (for KDE) - 2026 Update" /><published>2021-02-21T00:00:00+00:00</published><updated>2021-02-21T00:00:00+00:00</updated><id>http://wlieberz.github.io/bitwarden/2021/02/21/Installing-Bitwarden-AppImage-for-KDE</id><content type="html" xml:base="http://wlieberz.github.io/bitwarden/2021/02/21/Installing-Bitwarden-AppImage-for-KDE.html"><![CDATA[<h2 id="2026-update">2026 Update</h2>
+
+<p>When I originally wrote this post back in early 2021, I believe Bitwarden (the company) was providing generic <code class="language-plaintext highlighter-rouge">.deb</code> and <code class="language-plaintext highlighter-rouge">.rpm</code> packages for Bitwarden (the desktop application) and an AppImage pakage. If memory serves, at that time they were not publishing the app as either snap or Flatpak packages. Additionally, the AppImage package was self-updating, unlike the <code class="language-plaintext highlighter-rouge">.deb</code> / <code class="language-plaintext highlighter-rouge">.rpm</code> packages.</p>
+
+<p>As of 2026, I would reccomend skipping the AppImage installation method and either installing via flatpak or snap, since both are available.</p>
+
+<p><a href="https://flathub.org/en/apps/com.bitwarden.desktop">https://flathub.org/en/apps/com.bitwarden.desktop</a></p>
+
+<p><a href="https://snapcraft.io/bitwarden">https://snapcraft.io/bitwarden</a></p>
+
+<p>The original AppImage and rpm and deb packages <a href="https://bitwarden.com/download/">continue to be available</a>, which is nice.</p>
+
+<p>If you really want to proceed with the AppImage installation method, then maybe the original 2021 post, below, could still have some helpful hints for you.</p>
+
+<h2 id="original-2021-post">Original 2021 Post</h2>
+
+<p>I’ve been wanting to try the password manager <a href="https://bitwarden.com/">Bitwarden</a> for some time now. The recently announced <a href="http://blog.lastpass.com/2021/02/changes-to-lastpass-free/">changes</a> to the free edition of LastPass was just the push I needed to give Bitwarden an <a href="https://upload.wikimedia.org/wikipedia/en/0/08/Ernest_P._Worrell.jpg">earnest</a> try.</p>
+
+<p>I can report that the process of exporting my data from the LastPass browser extension to csv, then importing it into Bitwarden was easy and painless. While the steps were self-explanatory, I do appreciate that Bitwarden has a <a href="https://bitwarden.com/help/article/import-from-lastpass/">reference document</a> available. To be clear, I exported from the LastPass browser extension and then imported into the Bitwarden web interface.</p>
+
+<p>I really appreciate that while Bitwarden provides the usual iOS, Android, Windows, and macOS binaries, they also provide a cross-distro compatible Linux package in the form of an <a href="https://appimage.org/">AppImage</a>. While the <a href="https://snapcraft.io/">Snap</a> vs <a href="https://flatpak.org/">Flatpak</a> debate seems to get the most attention, it is nice to see AppImage getting some love.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>Disclaimer: this is not the only way to handle installation, and may not be the best method, depending on your needs, but this is how I like to do it.</p>
+
+<p>This method installs the AppImage binary into your home directory, so we assume that no other users on your system will need access to Bitwarden.</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># Create a bin directory in your home:</span>
+<span class="nb">mkdir</span> ~/bin
+<span class="nb">cd</span> ~/bin
+
+<span class="c"># Get the latest available AppImage Bitwarden package: </span>
+wget <span class="s2">"https://vault.bitwarden.com/download/?app=desktop&amp;platform=linux"</span> <span class="nt">-O</span> Bitwarden.AppImage
+
+<span class="c"># Make the AppImage executable:</span>
+<span class="nb">chmod </span>775 Bitwarden<span class="k">*</span>.AppImage
+
+<span class="c"># Since the Bitwarden AppImage binary will change its name whenever it</span>
+<span class="c"># it auto-updates, I like to create a wrapper-script to call it:</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh"> &gt; ./bitwarden.sh
+#!/bin/bash
+
+</span><span class="nv">$HOME</span><span class="sh">/bin/Bitwarden*.AppImage &amp;&gt; </span><span class="nv">$HOME</span><span class="sh">/bin/bitwarden.log &amp;
+</span><span class="no">
+EOF
+
+</span><span class="c"># Don't forget to make the wrapper script executable:</span>
+<span class="nb">chmod </span>770 bitwarden.sh</code></pre></figure>
+
+<h3 id="integrating-with-kde-menu">Integrating with KDE menu</h3>
+
+<p>Next, I like to integrate the application into my KDE menu. This should work regardless of the underlying distro, as long as your desktop environment is KDE (and why wouldn’t it be?).</p>
+
+<p>Right-click on the KDE menu, click “New Item”, type the name “Bitwarden”, and click “ok”. On the left hand side, drag the Bitwarden menu item into the category that makes the most sense to you - I usually put it in the “Office” category. On the right-hand side: Optionally add a description and comment, but definitely modify the “Command” field to: <code class="language-plaintext highlighter-rouge">/bin/bash -c "/home/&lt;YOUR USER NAME&gt;/bin/bitwarden.sh"</code>. You can also add an icon by clicking the empty square in the KDE Menu Editor (right-hand side). Usually I search within system icons for “lock” and just use a generic padlock icon. When done, click “save” to close out of the Menu Editor. Note: if you do not set a custom icon, the menu entry will just use a default “empty page” icon - but when it is running in the task manager you will actually see the correct Bitwarden logo.</p>
+
+<p>I have heard there is an AppImage daemon <a href="https://github.com/probonopd/go-appimage">appimaged</a> as well as a Launcher project <a href="https://github.com/TheAssassin/AppImageLauncher">AppImageLauncher</a>, either of which would probably help with the automation of integrating AppImage apps into GUI menus, and also might add some automation around updating the AppImages themselves. I should probably look into these if I start using AppImages on a larger scale. If I do, I’ll try to come back and edit this post.</p>
+
+<p>It doesn’t much matter where you put the AppImage and whether or not you integrate it into the menu of your desktop environment of choice. As far as I can tell, Bitwarden will store local data in your home directory, as a well-behaved desktop application should, in <code class="language-plaintext highlighter-rouge">~/.config/Bitwarden</code>.</p>
+
+<p>Finally, just a friendly reminder to ensure you have <a href="https://bitwarden.com/help/article/setup-two-step-login/">configured two factor authentication</a>.</p>
+
+<p>Happy password managing!</p>]]></content><author><name></name></author><category term="bitwarden" /><summary type="html"><![CDATA[2026 Update]]></summary></entry><entry><title type="html">CVE-2021-3156 (Baron Samedit) Patching RHEL-5 Air-Gapped Hosts</title><link href="http://wlieberz.github.io/ansible/2021/02/15/sudo-vulnerability-CVE-2021-3156-rhel5-patching.html" rel="alternate" type="text/html" title="CVE-2021-3156 (Baron Samedit) Patching RHEL-5 Air-Gapped Hosts" /><published>2021-02-15T00:00:00+00:00</published><updated>2021-02-15T00:00:00+00:00</updated><id>http://wlieberz.github.io/ansible/2021/02/15/sudo-vulnerability-CVE-2021-3156-rhel5-patching</id><content type="html" xml:base="http://wlieberz.github.io/ansible/2021/02/15/sudo-vulnerability-CVE-2021-3156-rhel5-patching.html"><![CDATA[<p>Yesterday, I posted a simple Ansible playbook to automate the verification of the patch status of hosts against the sudo vulnerability <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3156">CVE-2021-3156</a>.</p>
+
+<p>In case anyone finds it helpful, I’m sharing my <a href="https://github.com/wlieberz/ansible/blob/master/playbooks/patch-sudo-vuln-CVE-2021-3156.yml">playbook</a> for patching RHEL-5 and RHEL-7 hosts.</p>
+
+<p>In an ideal world there would be no more RHEL-5 hosts since even the Extended Life Cycle Support for RHEL-5 ended on November 30, 2020. However, I think we can agreee that we don’t live in an ideal world, unfortunately.</p>
+
+<h2 id="playbook-usage">Playbook Usage</h2>
+
+<h3 id="assumptions">Assumptions</h3>
+
+<p>The playbook assumes that RHEL-7 hosts can reach thier repos normally, but that the RHEL-5 hosts are on a restricted vlan without internet access, and also that the Ansible control host can reach the internet to fetch packages and push said packages to the RHEL-5 hosts.</p>
+
+<h3 id="actions">Actions</h3>
+
+<p>Running the playbook will download the RHEL-5 32-bit &amp; 64-bit rpm packages and PGP keys from the sudo-project to the Ansible host. This is idempotent, so you only need to fetch the files once. Note: you should add a line like <code class="language-plaintext highlighter-rouge">*.rpm</code> to your <code class="language-plaintext highlighter-rouge">.gitignore</code> to avoid checking rpm packages into git.</p>
+
+<p>Next, we have two blocks, each with a <code class="language-plaintext highlighter-rouge">when:</code> conditional. The first block executes when the OS is RHEL-7, based on Ansible facts and simply uses the yum module to ensure the sudo package is at the latest version.</p>
+
+<p>The second block similarly only runs when the host is RHEL-5. It copies the appropriate RPM (based on the system architecture) to the remote host along with the PGP keys. Next, it imports the pgp keys, then does a local install of the rpm package, and finally removes all temp files which were copied over.</p>
+
+<p>If you need to patch RHEL-6 hosts, the playbook could easily be extended with a similar pattern.</p>]]></content><author><name></name></author><category term="ansible" /><summary type="html"><![CDATA[Yesterday, I posted a simple Ansible playbook to automate the verification of the patch status of hosts against the sudo vulnerability CVE-2021-3156.]]></summary></entry><entry><title type="html">CVE-2021-3156 (Baron Samedit) Check Host Vulnerability</title><link href="http://wlieberz.github.io/ansible/2021/02/14/Baron-Samedit-Check-Host-Vulnerability.html" rel="alternate" type="text/html" title="CVE-2021-3156 (Baron Samedit) Check Host Vulnerability" /><published>2021-02-14T00:00:00+00:00</published><updated>2021-02-14T00:00:00+00:00</updated><id>http://wlieberz.github.io/ansible/2021/02/14/Baron-Samedit-Check-Host-Vulnerability</id><content type="html" xml:base="http://wlieberz.github.io/ansible/2021/02/14/Baron-Samedit-Check-Host-Vulnerability.html"><![CDATA[<p>Hopefully you are already certain all Linux systems you maintain have been patched to remediate the recent nasty sudo <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3156">vulnerability</a>, but sometimes it is nice to do yet another sweep through the environment to verify there are no lingering unpatched hosts.</p>
+
+<p>I <a href="https://github.com/wlieberz/ansible/blob/master/playbooks/check-sudo-vuln-CVE-2021-3156.yml">wrote</a> a quick Ansible playbook to check if a host is vulnerable or patched.</p>
+
+<h2 id="ansible-playbook-usage">Ansible Playbook Usage</h2>
+
+<p>You can run the playbook like this:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">anisble-playbook <span class="nt">-K</span> <span class="se">\</span>
+  <span class="nt">-i</span> test-inventory <span class="se">\</span>
+  check-sudo-vuln-CVE-2021-3156.yml <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">target</span><span class="o">=</span>testing</code></pre></figure>
+
+<p>The <code class="language-plaintext highlighter-rouge">-K</code> is to “Prompt for the password to use with sudo, if any”, if you have passwordless sudo for your account on your remote servers, you can omit this flag.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">-i</code> is to allow you to point to a particular Anisble inventory file. I’m using one called “test-inventory” for purposes of … testing.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">-e</code> is to pass an extra variable where we define the variable “target” as being equal to “testing”. The “testing” target is a host group defined in the inventory file.</p>
+
+<p>The simple test-inventory file looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-ini" data-lang="ini"><span class="nn">[testing]</span><span class="w">
+</span><span class="na">host01</span><span class="w">
+</span><span class="na">host02</span></code></pre></figure>
+
+<h3 id="ansible-playbook-output">Ansible Playbook Output</h3>
+
+<p>Running the playbook will produce output similar to:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">TASK <span class="o">[</span>Show Vulnerable Hosts] <span class="k">********************************</span>
+skipping: <span class="o">[</span>host01]
+ok: <span class="o">[</span>host02] <span class="o">=&gt;</span> <span class="o">{</span>
+   <span class="s2">"msg"</span>: <span class="s2">"VULNERABLE: host02"</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Any host which is patched will be skipped by the “Show Vulnerable Hosts” task. Any vulnerable host will be logged with the message “VULNERABLE: $hostName”.</p>
+
+<p>It would be nicer if there was a way to get the output of vulnerable hosts to not show “ok” but I have not found a good way to change that in Ansible. Basically, the task to “show vulnerable hosts” succeeded, so that is why we see “ok” in the playbook output. As a workaround, I tried setting the task to always fail and ignore errors (so execution of the playbook doesn’t stop), which flags the entire task as red, but the output is more cluttered with debug information so I opted not to use that method.</p>
+
+<p>Hopefully this is helpful to someone!</p>]]></content><author><name></name></author><category term="ansible" /><summary type="html"><![CDATA[Hopefully you are already certain all Linux systems you maintain have been patched to remediate the recent nasty sudo vulnerability, but sometimes it is nice to do yet another sweep through the environment to verify there are no lingering unpatched hosts.]]></summary></entry></feed>

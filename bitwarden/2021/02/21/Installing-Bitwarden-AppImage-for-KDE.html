@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Installing Bitwarden AppImage (for KDE) - 2026 Update | William Lieberz Tech Blog</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Installing Bitwarden AppImage (for KDE) - 2026 Update" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="2026 Update" />
+<meta name="twitter:description" property="og:description" content="2026 Update" />
+<link rel="canonical" href="http://wlieberz.github.io/bitwarden/2021/02/21/Installing-Bitwarden-AppImage-for-KDE.html" />
+<meta property="og:url" content="http://wlieberz.github.io/bitwarden/2021/02/21/Installing-Bitwarden-AppImage-for-KDE.html" />
+<meta property="og:site_name" content="William Lieberz Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-21T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Installing Bitwarden AppImage (for KDE) - 2026 Update" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-02-21T00:00:00+00:00","datePublished":"2021-02-21T00:00:00+00:00","description":"2026 Update","headline":"Installing Bitwarden AppImage (for KDE) - 2026 Update","mainEntityOfPage":{"@type":"WebPage","@id":"http://wlieberz.github.io/bitwarden/2021/02/21/Installing-Bitwarden-AppImage-for-KDE.html"},"url":"http://wlieberz.github.io/bitwarden/2021/02/21/Installing-Bitwarden-AppImage-for-KDE.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://wlieberz.github.io/feed.xml" title="William Lieberz Tech Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">William Lieberz Tech Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Installing Bitwarden AppImage (for KDE) - 2026 Update</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-02-21T00:00:00+00:00" itemprop="datePublished">Feb 21, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="2026-update">2026 Update</h2>
+
+<p>When I originally wrote this post back in early 2021, I believe Bitwarden (the company) was providing generic <code class="language-plaintext highlighter-rouge">.deb</code> and <code class="language-plaintext highlighter-rouge">.rpm</code> packages for Bitwarden (the desktop application) and an AppImage pakage. If memory serves, at that time they were not publishing the app as either snap or Flatpak packages. Additionally, the AppImage package was self-updating, unlike the <code class="language-plaintext highlighter-rouge">.deb</code> / <code class="language-plaintext highlighter-rouge">.rpm</code> packages.</p>
+
+<p>As of 2026, I would reccomend skipping the AppImage installation method and either installing via flatpak or snap, since both are available.</p>
+
+<p><a href="https://flathub.org/en/apps/com.bitwarden.desktop">https://flathub.org/en/apps/com.bitwarden.desktop</a></p>
+
+<p><a href="https://snapcraft.io/bitwarden">https://snapcraft.io/bitwarden</a></p>
+
+<p>The original AppImage and rpm and deb packages <a href="https://bitwarden.com/download/">continue to be available</a>, which is nice.</p>
+
+<p>If you really want to proceed with the AppImage installation method, then maybe the original 2021 post, below, could still have some helpful hints for you.</p>
+
+<h2 id="original-2021-post">Original 2021 Post</h2>
+
+<p>I’ve been wanting to try the password manager <a href="https://bitwarden.com/">Bitwarden</a> for some time now. The recently announced <a href="http://blog.lastpass.com/2021/02/changes-to-lastpass-free/">changes</a> to the free edition of LastPass was just the push I needed to give Bitwarden an <a href="https://upload.wikimedia.org/wikipedia/en/0/08/Ernest_P._Worrell.jpg">earnest</a> try.</p>
+
+<p>I can report that the process of exporting my data from the LastPass browser extension to csv, then importing it into Bitwarden was easy and painless. While the steps were self-explanatory, I do appreciate that Bitwarden has a <a href="https://bitwarden.com/help/article/import-from-lastpass/">reference document</a> available. To be clear, I exported from the LastPass browser extension and then imported into the Bitwarden web interface.</p>
+
+<p>I really appreciate that while Bitwarden provides the usual iOS, Android, Windows, and macOS binaries, they also provide a cross-distro compatible Linux package in the form of an <a href="https://appimage.org/">AppImage</a>. While the <a href="https://snapcraft.io/">Snap</a> vs <a href="https://flatpak.org/">Flatpak</a> debate seems to get the most attention, it is nice to see AppImage getting some love.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>Disclaimer: this is not the only way to handle installation, and may not be the best method, depending on your needs, but this is how I like to do it.</p>
+
+<p>This method installs the AppImage binary into your home directory, so we assume that no other users on your system will need access to Bitwarden.</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># Create a bin directory in your home:</span>
+<span class="nb">mkdir</span> ~/bin
+<span class="nb">cd</span> ~/bin
+
+<span class="c"># Get the latest available AppImage Bitwarden package: </span>
+wget <span class="s2">"https://vault.bitwarden.com/download/?app=desktop&amp;platform=linux"</span> <span class="nt">-O</span> Bitwarden.AppImage
+
+<span class="c"># Make the AppImage executable:</span>
+<span class="nb">chmod </span>775 Bitwarden<span class="k">*</span>.AppImage
+
+<span class="c"># Since the Bitwarden AppImage binary will change its name whenever it</span>
+<span class="c"># it auto-updates, I like to create a wrapper-script to call it:</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh"> &gt; ./bitwarden.sh
+#!/bin/bash
+
+</span><span class="nv">$HOME</span><span class="sh">/bin/Bitwarden*.AppImage &amp;&gt; </span><span class="nv">$HOME</span><span class="sh">/bin/bitwarden.log &amp;
+</span><span class="no">
+EOF
+
+</span><span class="c"># Don't forget to make the wrapper script executable:</span>
+<span class="nb">chmod </span>770 bitwarden.sh</code></pre></figure>
+
+<h3 id="integrating-with-kde-menu">Integrating with KDE menu</h3>
+
+<p>Next, I like to integrate the application into my KDE menu. This should work regardless of the underlying distro, as long as your desktop environment is KDE (and why wouldn’t it be?).</p>
+
+<p>Right-click on the KDE menu, click “New Item”, type the name “Bitwarden”, and click “ok”. On the left hand side, drag the Bitwarden menu item into the category that makes the most sense to you - I usually put it in the “Office” category. On the right-hand side: Optionally add a description and comment, but definitely modify the “Command” field to: <code class="language-plaintext highlighter-rouge">/bin/bash -c "/home/&lt;YOUR USER NAME&gt;/bin/bitwarden.sh"</code>. You can also add an icon by clicking the empty square in the KDE Menu Editor (right-hand side). Usually I search within system icons for “lock” and just use a generic padlock icon. When done, click “save” to close out of the Menu Editor. Note: if you do not set a custom icon, the menu entry will just use a default “empty page” icon - but when it is running in the task manager you will actually see the correct Bitwarden logo.</p>
+
+<p>I have heard there is an AppImage daemon <a href="https://github.com/probonopd/go-appimage">appimaged</a> as well as a Launcher project <a href="https://github.com/TheAssassin/AppImageLauncher">AppImageLauncher</a>, either of which would probably help with the automation of integrating AppImage apps into GUI menus, and also might add some automation around updating the AppImages themselves. I should probably look into these if I start using AppImages on a larger scale. If I do, I’ll try to come back and edit this post.</p>
+
+<p>It doesn’t much matter where you put the AppImage and whether or not you integrate it into the menu of your desktop environment of choice. As far as I can tell, Bitwarden will store local data in your home directory, as a well-behaved desktop application should, in <code class="language-plaintext highlighter-rouge">~/.config/Bitwarden</code>.</p>
+
+<p>Finally, just a friendly reminder to ensure you have <a href="https://bitwarden.com/help/article/setup-two-step-login/">configured two factor authentication</a>.</p>
+
+<p>Happy password managing!</p>
+
+  </div><a class="u-url" href="/bitwarden/2021/02/21/Installing-Bitwarden-AppImage-for-KDE.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">William Lieberz Tech Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">William Lieberz Tech Blog</li><li><a class="u-email" href="mailto:william.lieberz@gmail.com">william.lieberz@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/wlieberz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">wlieberz</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Various musings and thoughts from William Lieberz related to computer stuff. This blog is mostly about Linux, Rust, DevOps, and anything else I might find interesting</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
